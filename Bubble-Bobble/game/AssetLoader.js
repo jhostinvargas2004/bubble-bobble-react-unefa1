@@ -128,7 +128,12 @@ export class AssetLoader {
             'fronted/maps/level4.json'
         );
 
+        scene.load.tilemapTiledJSON(
+            'level5',
+            'fronted/maps/level5.json'
+        );
 
-        scene.levels = 4;
+
+        scene.levels = 5;
     }
 }
