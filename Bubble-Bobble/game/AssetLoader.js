@@ -1,7 +1,4 @@
 export class AssetLoader {
-    /**
-     * @param {Phaser.Scene} scene 
-     */
     static preload(scene) {
 
         scene.load.audio('theme', [

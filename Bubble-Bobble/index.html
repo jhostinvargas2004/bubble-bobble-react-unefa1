@@ -1,20 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-
-<link rel="shortcut icon" type="image/png" href="frontend/sprites/head.png">
-
-<title>Bubble Bobble</title>
-
-<script src="game/phaser.js"></script>
-
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/png" href="fronted/sprites/head.png">
+  <title>Bubble Bobble</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Saira:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+  <script src="game/phaser.js"></script>
 </head>
-
 <body>
 
-<script type="module" src="game/Setup.js"></script>
+  <div id="pantalla-menu" class="pantalla">
+    <img src="assets-menu/menu-principal-bg.png" alt="Bubble Bobble" class="imagen-fondo">
+    <div class="fila-botones">
+      <button id="boton-nuevo-jugador" class="boton">Nuevo jugador</button>
+      <button id="boton-nuevo-juego" class="boton">Nuevo juego</button>
+      <button id="boton-retomar" class="boton">Retomar partida</button>
+    </div>
+  </div>
 
+  <div id="pantalla-alias" class="pantalla oculto">
+    <div class="tarjeta">
+      <h2 id="titulo-alias" class="titulo"></h2>
+      <input id="input-alias" class="input" type="text" placeholder="Escribe tu alias">
+      <p id="error-alias" class="error"></p>
+      <div class="fila-botones">
+        <button id="boton-confirmar" class="boton">Confirmar</button>
+        <button id="boton-volver" class="boton">Volver</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="contenedor-juego" class="oculto"></div>
+
+  <div id="menu-pausa" class="oculto">
+    <div class="caja-pausa">
+      <h2 class="titulo-pausa">Juego Pausado</h2>
+      <button id="boton-continuar" class="boton-pausa">Continuar</button>
+      <button id="boton-guardar" class="boton-pausa">Guardar partida</button>
+      <p id="mensaje-pausa" class="mensaje-pausa"></p>
+      <button id="boton-salir" class="boton-pausa">Salir al menú principal</button>
+    </div>
+  </div>
+
+  <script type="module" src="menu.js"></script>
 </body>
-
 </html>

@@ -1,3 +1,5 @@
+import { datosIniciales } from "./Setup.js";
+
 export class UIManager{
 
     static create(scene){
@@ -10,7 +12,7 @@ export class UIManager{
             14
         ).setOrigin(.5);
 
-        scene.lives = 3;
+        scene.lives = datosIniciales ? datosIniciales.lives : 3;
 
         scene.lifeDisplay = scene.add.group({
 
@@ -34,16 +36,16 @@ export class UIManager{
             14
         ).setOrigin(.5);
 
-        scene.score = 0;
+        scene.startScore = datosIniciales ? datosIniciales.score : 0;
+        scene.score = scene.startScore;
 
         scene.scoreText = scene.add.bitmapText(
             50,
             97,
             'pixel',
-            '0',
+            String(scene.score),
             16
         ).setOrigin(.5);
-
 
     }
 

@@ -24,7 +24,7 @@ export class LevelManager {
             }
 
             scene.time.delayedCall(5000, function () {
-                scene.scene.restart();
+                window.dispatchEvent(new CustomEvent('bb-fin-partida'));
             }, [], scene);
 
         } else {

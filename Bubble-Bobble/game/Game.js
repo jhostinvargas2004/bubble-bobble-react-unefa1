@@ -10,6 +10,7 @@ import {AnimationLoader} from "./AnimationLoader.js";
 import {AudioManager} from "./AudioManager.js";
 import {UIManager} from "./UIManager.js";
 import {LevelManager} from "./LevelManager.js";
+import { datosIniciales } from "./Setup.js";
 
 var music;
 class Game extends Phaser.Scene {
@@ -25,8 +26,9 @@ preload(){
     
     create(){
         this.physicsConfig = config.physics;
-        this.startScore = 0;
-        this.currentLevel = 1;
+        this.startScore = datosIniciales ? datosIniciales.score : 0;
+        this.currentLevel = datosIniciales ? datosIniciales.level : 1;
+        this.alias = datosIniciales ? datosIniciales.alias : null;
         this.gameRunning = false;
         AnimationLoader.create(this);
         AudioManager.create(this);
@@ -52,12 +54,15 @@ preload(){
         });
         LevelManager.loadLevel(this,'level' + this.currentLevel);
 
-        if(music === undefined){ 
+        if (!music || !music.isPlaying) { 
             music = this.sound.add('theme', {
-                loop: true
+                loop: true,
+                volume: 0.5
             });
+
             music.play();
         }
+
     }
     update(_, dt){
     }
